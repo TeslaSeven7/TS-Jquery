@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EQUERY</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    .bold{
+        font-weight: bold;
+    }
+</style>
+<body>
+    <header>
+        <h1 class="title" data-attr="Je suis un data attribut de title">Welcome to EQUERY</h1>
+    </header>
+    <main>
+        <p>This is a Template test for JQuery in TS</p>
+
+        <p class="text-red">This text should become red, underlined and bold</p>
+        <p id="removeClass" class="bold">This text should not be bold</p>
+        <p class="change-html">This text should change</p>
+
+        <p class="change-onclick">I CAN CHANGE ON CLICK</p>
+
+
+        <form action="#">
+            <input type="text" id="inputField" placeholder="Type something..." value="Hello World!" data-attr="Je suis un data attribut d'inputField">	
+            <input type="password" id="inputPassword" placeholder="*****" value="password" data-attr="Je suis un data attribut d'inputPassword">
+            <button id="submitButton">Submit</button>
+            <p>yolo</p>
+        </form>
+        <div id="result"></div>
+
+        <div class="card">
+            <button>
+                Clicker
+            </button>
+        </div>
+
+    </main>
+    <footer>
+    </footer>
+    <script src="./dist/main.js"></script>
+    <script src="./dist/script.js"></script>
+</body>
+</html>

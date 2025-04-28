@@ -21,12 +21,15 @@ interface EQuery {
     removeClass(className: string): EQuery; // Remove a class from selected elements
     setAttr(name: string, value: string): EQuery; // Set an attribute for selected elements
     html(htmlString?: string): string | EQuery; // Get or set the inner HTML of selected elements
+    toggleClass(selector?: string | ((el: HTMLElement) => boolean)): EQuery; // Toggle the class of each selected element
+    text(selector?: string): string | EQuery; // Get or set the text content of selected elements
+    val(this: EQuery, value?: string): string | EQuery  // Get or set the value of selected elements
     
     // Filter methods
     has(selector: string): EQuery; // Check if any of the selected elements match the given selector
     filter(callback: (el: HTMLElement, index: number) => boolean): EQuery; // Filter selected elements based on a callback function
     eq(index: number): EQuery; // Get the element at the specified index from the selected elements
-    not(selector: string | ((el: HTMLElement) => boolean)): EQuery; // Filter out elements that match the given selector or condition
+    not(selector?: string | ((el: HTMLElement) => boolean)): EQuery; // Filter out elements that match the given selector or condition
     
     
     // Events Bindings methods
@@ -381,6 +384,47 @@ function $(selector: string | HTMLElement | HTMLElement[]): EQuery {
             return $(filteredElements);
         },
         
+        // Toggle method to toggle a class of selected elements
+        toggleClass(selector: string): EQuery {
+            this.elements.forEach((el: HTMLElement) => {    
+                el.classList.toggle(selector);
+            });
+            return this;
+        },
+        
+        // set or get the text content of selected elements
+        text(selector?: string): string | EQuery {
+            if (selector === undefined || selector.trim() === '') {
+                let combinedText: string = '';
+                this.elements.forEach((el: HTMLElement) => {
+                    combinedText += (el.textContent ?? '').trim();
+                });
+                return combinedText;
+            } else {
+                this.elements.forEach((el: HTMLElement) => {
+                    el.textContent = selector;
+                });
+                return this;
+            }
+        },
+        
+        // set or get the value of form elements (input, textarea, select)
+        val(this: EQuery, value?: string): string | EQuery {
+            if (value === undefined) {
+                const firstElement = this.elements[0] as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | undefined;
+                if (firstElement && 'value' in firstElement) {
+                    return firstElement.value;
+                }
+                return '';
+            } else {
+                this.elements.forEach((el) => {
+                    if ('value' in el) {
+                        (el as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement).value = value;
+                    }
+                });
+                return this;
+            }
+        },
     };
     
     return instance as EQuery;

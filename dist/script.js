@@ -72,6 +72,7 @@ form.children().addClass('form-child');
 form.children().each((child) => {
     console.log('Form Child : ', child);
 });
+
 console.log('Form Children: ', form.children().elements);
 console.log('Form Parent: ', form.parent().elements);
 console.log('Form Parents: ', form.parents().elements);
@@ -80,6 +81,19 @@ console.log('Form Prev: ', form.prev().elements);
 console.log('Form closest H1: ', form.closest('input').elements);
 console.log('Form first input: ', form.first('input').elements);
 console.log('Form last input: ', form.last('input').elements);
+
+
+const checkbox = $('.checkbox');
+checkbox.on('click', function (e) {
+    e.preventDefault();
+    $(this).toggleClass('checked');
+});
+
+const textElement = $('.text-element');
+
+console.log(textElement.text(''));
+
+textElement.text('Text changé via .text()! ');
 
 //Error Handling
 console.log($('input:exempleError'));

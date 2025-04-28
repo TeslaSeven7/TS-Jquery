@@ -306,6 +306,48 @@ function $(selector) {
             }
             return $(filteredElements);
         },
+        // Toggle method to toggle a class of selected elements
+        toggleClass(selector) {
+            this.elements.forEach((el) => {
+                el.classList.toggle(selector);
+            });
+            return this;
+        },
+        // set or get the text content of selected elements
+        text(selector) {
+            if (selector === undefined || selector.trim() === '') {
+                let combinedText = '';
+                this.elements.forEach((el) => {
+                    var _a;
+                    combinedText += ((_a = el.textContent) !== null && _a !== void 0 ? _a : '').trim();
+                });
+                return combinedText;
+            }
+            else {
+                this.elements.forEach((el) => {
+                    el.textContent = selector;
+                });
+                return this;
+            }
+        },
+        // set or get the value of form elements (input, textarea, select)
+        val(value) {
+            if (value === undefined) {
+                const firstElement = this.elements[0];
+                if (firstElement && 'value' in firstElement) {
+                    return firstElement.value;
+                }
+                return '';
+            }
+            else {
+                this.elements.forEach((el) => {
+                    if ('value' in el) {
+                        el.value = value;
+                    }
+                });
+                return this;
+            }
+        },
     };
     return instance;
 }

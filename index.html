@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark:bg-gray-950">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EQUERY</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./src/output.css">
 </head>
 <style>
     .bold{
@@ -12,19 +12,264 @@
     }
 </style>
 <body>
+    <div>
+        <div class="fixed inset-x-0 top-0 z-10 border-b border-gray-950/5 dark:border-white/10">
+            <div class="bg-white dark:bg-gray-950">
+                <div class="flex h-14 items-center justify-between gap-8 px-4 sm:px-6">
+                    <div class="flex items-center gap-4">
+                        <a class="shrink-0" aria-label="Home" href="/">
+                            <svg viewBox="0 0 167 21" fill="none" class="h-5 text-black dark:text-white">
+                                <path class="fill-sky-400" d="M17.183 0C12.6 0 9.737 2.291 8.59 6.873c1.719-2.29 3.723-3.15 6.014-2.577 1.307.326 2.242 1.274 3.275 2.324 1.685 1.71 3.635 3.689 7.894 3.689 4.582 0 7.445-2.291 8.591-6.872-1.718 2.29-3.723 3.15-6.013 2.576-1.308-.326-2.243-1.274-3.276-2.324C23.39 1.98 21.44 0 17.183 0ZM8.59 10.309C4.01 10.309 1.145 12.6 0 17.182c1.718-2.291 3.723-3.15 6.013-2.577 1.308.326 2.243 1.274 3.276 2.324 1.685 1.71 3.635 3.689 7.894 3.689 4.582 0 7.445-2.29 8.59-6.872-1.718 2.29-3.722 3.15-6.013 2.577-1.307-.327-2.242-1.276-3.276-2.325-1.684-1.71-3.634-3.689-7.893-3.689Z"></path>
+                                <path fill="currentColor" d="M51.547 8.688h-3v5.803c0 1.548 1.016 1.524 3 1.427v2.346c-4.015.483-5.611-.629-5.611-3.773V8.688H43.71V6.172h2.225V2.925l2.612-.774v4.021h2.998v2.516Zm11.43-2.516h2.61v12.092h-2.61v-1.741c-.92 1.28-2.346 2.055-4.233 2.055-3.288 0-6.021-2.78-6.021-6.36 0-3.603 2.733-6.36 6.021-6.36 1.886 0 3.313.774 4.233 2.032V6.172Zm-3.821 9.915c2.176 0 3.82-1.62 3.82-3.87 0-2.248-1.644-3.868-3.82-3.868-2.177 0-3.821 1.62-3.821 3.869s1.644 3.87 3.82 3.87ZM69.94 4.36a1.687 1.687 0 0 1-1.668-1.669c.002-.443.179-.868.491-1.18a1.662 1.662 0 0 1 2.354 0c.312.312.49.737.491 1.18 0 .895-.75 1.669-1.668 1.669Zm-1.306 13.905V6.172h2.612v12.092h-2.612Zm5.635 0V.609h2.611v17.654H74.27ZM93.834 6.172h2.757l-3.797 12.092h-2.563l-2.516-8.15-2.539 8.15h-2.563L78.816 6.172h2.757l2.346 8.343 2.54-8.343h2.49l2.514 8.343 2.37-8.343ZM99.83 4.36c-.92 0-1.669-.774-1.669-1.669.002-.443.18-.868.492-1.18a1.661 1.661 0 0 1 2.354 0c.313.312.49.737.492 1.18 0 .895-.75 1.669-1.669 1.669Zm-1.306 13.905V6.172h2.612v12.092h-2.612ZM110.52 5.858c2.708 0 4.643 1.838 4.643 4.982v7.423h-2.612v-7.158c0-1.838-1.064-2.804-2.708-2.804-1.717 0-3.071 1.015-3.071 3.482v6.48h-2.612V6.174h2.612V7.72c.798-1.257 2.103-1.862 3.748-1.862Zm17.024-4.522h2.612v16.927h-2.612v-1.741c-.918 1.282-2.345 2.055-4.231 2.055-3.289 0-6.022-2.78-6.022-6.36 0-3.603 2.733-6.36 6.022-6.36 1.886 0 3.313.774 4.231 2.032V1.336Zm-3.821 14.751c2.177 0 3.821-1.62 3.821-3.87 0-2.248-1.644-3.868-3.821-3.868-2.176 0-3.82 1.62-3.82 3.869s1.644 3.87 3.82 3.87Zm15.187 2.49c-3.651 0-6.384-2.78-6.384-6.36 0-3.602 2.733-6.359 6.384-6.359 2.37 0 4.426 1.233 5.393 3.12l-2.249 1.306c-.532-1.137-1.717-1.863-3.168-1.863-2.128 0-3.748 1.62-3.748 3.797 0 2.176 1.62 3.797 3.748 3.797 1.451 0 2.636-.75 3.216-1.863l2.249 1.282c-1.015 1.91-3.071 3.144-5.441 3.144Zm9.746-9.068c0 2.201 6.505.87 6.505 5.345 0 2.419-2.104 3.724-4.716 3.724-2.418 0-4.159-1.089-4.933-2.83l2.249-1.305c.387 1.088 1.355 1.74 2.684 1.74 1.161 0 2.056-.386 2.056-1.354 0-2.151-6.505-.942-6.505-5.27 0-2.274 1.959-3.701 4.425-3.701 1.983 0 3.628.92 4.474 2.515l-2.2 1.233c-.436-.943-1.283-1.378-2.274-1.378-.943 0-1.765.41-1.765 1.281Zm11.148 0c0 2.201 6.505.87 6.505 5.345 0 2.419-2.104 3.724-4.716 3.724-2.418 0-4.158-1.089-4.933-2.83l2.249-1.305c.387 1.088 1.354 1.74 2.684 1.74 1.161 0 2.056-.386 2.056-1.354 0-2.151-6.505-.942-6.505-5.27 0-2.274 1.959-3.701 4.426-3.701 1.982 0 3.627.92 4.473 2.515l-2.2 1.233c-.435-.943-1.282-1.378-2.273-1.378-.944 0-1.766.41-1.766 1.281Z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="flex items-center gap-6 max-md:hidden">
+                        <a aria-label="GitHub repository" href="https://github.com/tailwindlabs/tailwindcss">
+                            <svg viewBox="0 0 20 20" class="size-5 fill-black/40 dark:fill-gray-400">
+                                <path d="M10 0C4.475 0 0 4.475 0 10a9.994 9.994 0 006.838 9.488c.5.087.687-.213.687-.476 0-.237-.013-1.024-.013-1.862-2.512.463-3.162-.612-3.362-1.175-.113-.287-.6-1.175-1.025-1.412-.35-.188-.85-.65-.013-.663.788-.013 1.35.725 1.538 1.025.9 1.512 2.337 1.087 2.912.825.088-.65.35-1.088.638-1.338-2.225-.25-4.55-1.112-4.55-4.937 0-1.088.387-1.987 1.025-2.688-.1-.25-.45-1.274.1-2.65 0 0 .837-.262 2.75 1.026a9.28 9.28 0 012.5-.338c.85 0 1.7.112 2.5.337 1.912-1.3 2.75-1.024 2.75-1.024.55 1.375.2 2.4.1 2.65.637.7 1.025 1.587 1.025 2.687 0 3.838-2.337 4.688-4.562 4.938.362.312.675.912.675 1.85 0 1.337-.013 2.412-.013 2.75 0 .262.188.574.688.474A10.016 10.016 0 0020 10c0-5.525-4.475-10-10-10z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <div class="grid min-h-dvh grid-cols-1 grid-rows-[1fr_1px_auto_1px_auto] pt-26.25 lg:grid-cols-[var(--container-2xs)_2.5rem_minmax(0,1fr)_2.5rem] lg:pt-14.25 xl:grid-cols-[var(--container-2xs)_2.5rem_minmax(0,1fr)_2.5rem]">
+            <div class="relative col-start-1 row-span-full row-start-1 max-lg:hidden">
+                <div class="absolute inset-0">
+                    <div class="sticky top-14.25 bottom-0 left-0 h-full max-h-[calc(100dvh-(var(--spacing)*14.25))] w-2xs overflow-y-auto p-6">
+                        <div>
+                            <nav class="flex flex-col gap-8">
+                                <ul class="flex flex-col gap-2">
+                                    <li>
+                                        <a class="group inline-flex items-center gap-3 text-base/8 text-gray-600 sm:text-sm/7 dark:text-gray-300 **:data-outline:stroke-gray-400 dark:**:data-outline:stroke-gray-500 **:[svg]:first:size-5 **:[svg]:first:sm:size-4 hover:text-gray-950 hover:**:data-highlight:fill-gray-300 hover:**:data-outline:stroke-gray-950 dark:hover:text-white dark:hover:**:data-highlight:fill-gray-600 dark:hover:**:data-outline:stroke-white aria-[current]:font-semibold aria-[current]:text-gray-950 aria-[current]:**:data-highlight:fill-gray-300 aria-[current]:**:data-outline:stroke-gray-950 dark:aria-[current]:text-white dark:aria-[current]:**:data-highlight:fill-gray-600 dark:aria-[current]:**:data-outline:stroke-white" aria-current="page" href="/docs/installation">
+                                            <svg viewBox="0 0 16 16" fill="none">
+                                                <path data-highlight="true" d="M3.5 1.5C2.4264 1.5 1.40926 1.74169 0.5 2.17363V13.1736C1.40926 12.7417 2.4264 12.5 3.5 12.5C5.21352 12.5 6.78323 13.1157 8 14.1379V3.13789C6.78323 2.11568 5.21352 1.5 3.5 1.5Z"></path>
+                                                <path data-outline="true" d="M8 14.1379C9.21677 13.1157 10.7865 12.5 12.5 12.5C13.5736 12.5 14.5907 12.7417 15.5 13.1736V2.17363C14.5907 1.74169 13.5736 1.5 12.5 1.5C10.7865 1.5 9.21677 2.11568 8 3.13789M8 14.1379C6.78323 13.1157 5.21352 12.5 3.5 12.5C2.4264 12.5 1.40926 12.7417 0.5 13.1736V2.17363C1.40926 1.74169 2.4264 1.5 3.5 1.5C5.21352 1.5 6.78323 2.11568 8 3.13789M8 14.1379V3.13789"></path>
+                                            </svg>
+                                            Documentation
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="flex flex-col gap-3" data-autoscroll="true">
+                                    <h3 class="font-mono text-sm/6 font-medium tracking-widest text-gray-500 uppercase sm:text-xs/6 dark:text-gray-400">
+                                        DOM Traversal
+                                    </h3>
+                                    <ul class="flex flex-col gap-2 border-l dark:border-[color-mix(in_oklab,_var(--color-gray-950),white_20%)] border-[color-mix(in_oklab,_var(--color-gray-950),white_90%)]">
+                                        <li class="-ml-px flex flex-col items-start gap-2">
+                                            <a class="inline-block border-l border-transparent text-base/8 text-gray-600 hover:border-gray-950/25 hover:text-gray-950 sm:text-sm/6 dark:text-gray-300 dark:hover:border-white/25 dark:hover:text-white aria-[current]:border-gray-950 aria-[current]:font-semibold aria-[current]:text-gray-950 dark:aria-[current]:border-white dark:aria-[current]:text-white pl-5 sm:pl-4" aria-current="page" type="button" data-headlessui-state="" href="/docs/installation">
+                                                $()
+                                            </a>
+                                        </li>
+                                        <li class="-ml-px flex flex-col items-start gap-2">
+                                            <a class="inline-block border-l border-transparent text-base/8 text-gray-600 hover:border-gray-950/25 hover:text-gray-950 sm:text-sm/6 dark:text-gray-300 dark:hover:border-white/25 dark:hover:text-white aria-[current]:border-gray-950 aria-[current]:font-semibold aria-[current]:text-gray-950 dark:aria-[current]:border-white dark:aria-[current]:text-white pl-5 sm:pl-4" type="button" data-headlessui-state="" href="/docs/editor-setup">
+                                                Editor setup
+                                            </a>
+                                        </li>
+                                        <li class="-ml-px flex flex-col items-start gap-2">
+                                            <a class="inline-block border-l border-transparent text-base/8 text-gray-600 hover:border-gray-950/25 hover:text-gray-950 sm:text-sm/6 dark:text-gray-300 dark:hover:border-white/25 dark:hover:text-white aria-[current]:border-gray-950 aria-[current]:font-semibold aria-[current]:text-gray-950 dark:aria-[current]:border-white dark:aria-[current]:text-white pl-5 sm:pl-4" type="button" data-headlessui-state="" href="/docs/compatibility">
+                                                Compatibility
+                                            </a>
+                                        </li>
+                                        <li class="-ml-px flex flex-col items-start gap-2">
+                                            <a class="inline-block border-l border-transparent text-base/8 text-gray-600 hover:border-gray-950/25 hover:text-gray-950 sm:text-sm/6 dark:text-gray-300 dark:hover:border-white/25 dark:hover:text-white aria-[current]:border-gray-950 aria-[current]:font-semibold aria-[current]:text-gray-950 dark:aria-[current]:border-white dark:aria-[current]:text-white pl-5 sm:pl-4" type="button" data-headlessui-state="" href="/docs/upgrade-guide">
+                                                Upgrade guide
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-col gap-3" data-autoscroll="true">
+                                    <h3 class="font-mono text-sm/6 font-medium tracking-widest text-gray-500 uppercase sm:text-xs/6 dark:text-gray-400">Base styles</h3>
+                                    <ul class="flex flex-col gap-2 border-l dark:border-[color-mix(in_oklab,_var(--color-gray-950),white_20%)] border-[color-mix(in_oklab,_var(--color-gray-950),white_90%)]">
+                                        <li class="-ml-px flex flex-col items-start gap-2">
+                                            <a class="inline-block border-l border-transparent text-base/8 text-gray-600 hover:border-gray-950/25 hover:text-gray-950 sm:text-sm/6 dark:text-gray-300 dark:hover:border-white/25 dark:hover:text-white aria-[current]:border-gray-950 aria-[current]:font-semibold aria-[current]:text-gray-950 dark:aria-[current]:border-white dark:aria-[current]:text-white pl-5 sm:pl-4" type="button" data-headlessui-state="" href="/docs/preflight">
+                                                Preflight
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-start-2 row-span-5 row-start-1 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5 max-lg:hidden dark:[--pattern-fg:var(--color-white)]/10"></div>
+            <div class="relative row-start-1 grid grid-cols-subgrid lg:col-start-3">
+                <div hidden=""></div>
+                <div class="isolate mx-auto grid w-full max-w-2xl grid-cols-1 gap-10 pt-10 md:pb-24 xl:max-w-5xl">
+                    <div class="px-4 sm:px-6">
+                        <p data-section="true" class="font-mono text-xs/6 font-medium tracking-widest text-gray-600 uppercase dark:text-gray-400">Documentation</p>
+                        <h1 class="mt-2 text-3xl font-medium tracking-tight text-gray-950 dark:text-white">Get started with TS Query</h1>
+                        <p data-description="true" class="mt-6 text-base/7 text-gray-700 dark:text-gray-300">Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other templates for class names, generating the corresponding styles and then writing them to a static CSS file.</p>
+                        <p class="mt-4 text-base/7 text-gray-700 dark:text-gray-300">It's fast, flexible, and reliable — with zero-runtime.</p>
+                        <div class="mt-10" data-content="true">
+                            <section class="relative mb-16">
+                                <div class="relative z-10">
+                                    <h2 data-docsearch-ignore="true" class="mb-6 text-lg font-semibold tracking-tight text-gray-950 dark:text-white">Installation</h2>
+                                    <div class="-mx-4 mb-6 flex overflow-auto sm:-mx-6">
+                                        <div class="min-w-full flex-none px-4 sm:px-6">
+                                            <ul class="mb-px flex gap-x-6 border-b border-gray-950/5 whitespace-nowrap dark:border-white/10">
+                                                <li>
+                                                    <h2><a class="-mb-px flex border-b pb-2 cursor-default text-sm/7 font-medium border-current text-gray-950 dark:text-white" href="">Functions</a></h2>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="content-wrapper" class="prose relative z-10 mb-10 max-w-3xl" data-content="true">
+                                    <h3 class="sr-only" data-title="true">Installing Tailwind CLI</h3>
+                                    <p>
+                                        The simplest and fastest way to get up and running with Tailwind CSS from scratch is with the Tailwind CLI tool. The CLI is also available as a 
+                                        if you want to use it without installing Node.js.
+                                    </p>
+                                </div>
+                                <div class="grid grid-cols-[auto_repeat(5,minmax(0,1fr))] gap-x-6 xl:gap-y-10">
+                                    <div>
+                                        <div class="grid size-7 grid-cols-1 grid-rows-1 place-content-center border-1 border-gray-700/50 font-mono text-[10px]/7 font-medium text-gray-950 dark:border-white/50 dark:text-white">
+                                            <div class="col-start-1 row-start-1 grid place-content-center">
+                                                <div class="h-7 w-5 bg-white dark:bg-gray-950"></div>
+                                            </div>
+                                            <div class="col-start-1 row-start-1 grid place-content-center tracking-widest">01</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-5 xl:col-span-2">
+                                        <h4 class="mb-2 text-sm leading-6 font-semibold text-slate-900 dark:text-slate-200">Install Tailwind CSS</h4>
+                                        <div class="prose">
+                                            <p>Install <code>tailwindcss</code> and <code>@tailwindcss/cli</code> via npm.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-full mt-6 mb-16 sm:ml-13 xl:col-span-3 xl:m-0 xl:ml-0">
+                                        <div class="rounded-xl bg-gray-950 in-data-stack:mt-0 in-data-stack:rounded-none in-[figure]:-mx-1 in-[figure]:-mb-1 in-data-stack:[:first-child>&amp;]:rounded-t-xl in-data-stack:[:first-child>&amp;]:*:rounded-t-xl in-data-stack:[:last-child>&amp;]:rounded-b-xl in-data-stack:[:last-child>&amp;]:*:rounded-b-xl">
+                                            <div class="rounded-xl p-1 text-sm scheme-dark in-data-stack:rounded-none dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10 in-data-stack:dark:inset-ring-0">
+                                                <div class="px-3 pt-0.5 pb-1.5 text-xs/5 text-gray-400 dark:text-white/50">Terminal</div>
+                                                <div class="*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:overflow-auto *:rounded-lg *:bg-white/10! *:p-5 dark:*:bg-white/5! **:[.line]:isolate **:[.line]:not-last:min-h-[1lh] *:inset-ring *:inset-ring-white/10 dark:*:inset-ring-white/5">
+                                                    <pre class="shiki tailwindcss-theme" style="background-color:transparent;color:var(--color-slate-50)" tabindex="0"><code><div class="line"><span style="color:var(--color-pink-400)">npm</span><span style="color:var(--color-sky-300)"> install</span><span style="color:var(--color-sky-300)"> tailwindcss</span><span style="color:var(--color-sky-300)"> @tailwindcss/cli</span></div></code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="grid size-7 grid-cols-1 grid-rows-1 place-content-center border-1 border-gray-700/50 font-mono text-[10px]/7 font-medium text-gray-950 dark:border-white/50 dark:text-white">
+                                            <div class="col-start-1 row-start-1 grid place-content-center">
+                                                <div class="h-7 w-5 bg-white dark:bg-gray-950"></div>
+                                            </div>
+                                            <div class="col-start-1 row-start-1 grid place-content-center tracking-widest">02</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-5 xl:col-span-2">
+                                        <h4 class="mb-2 text-sm leading-6 font-semibold text-slate-900 dark:text-slate-200">Import Tailwind in your CSS</h4>
+                                        <div class="prose">
+                                            <p>Add the <code>@import "tailwindcss";</code> import to your main CSS file.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-full mt-6 mb-16 sm:ml-13 xl:col-span-3 xl:m-0 xl:ml-0">
+                                        <div class="rounded-xl bg-gray-950 in-data-stack:mt-0 in-data-stack:rounded-none in-[figure]:-mx-1 in-[figure]:-mb-1 in-data-stack:[:first-child>&amp;]:rounded-t-xl in-data-stack:[:first-child>&amp;]:*:rounded-t-xl in-data-stack:[:last-child>&amp;]:rounded-b-xl in-data-stack:[:last-child>&amp;]:*:rounded-b-xl">
+                                            <div class="rounded-xl p-1 text-sm scheme-dark in-data-stack:rounded-none dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10 in-data-stack:dark:inset-ring-0">
+                                                <div class="px-3 pt-0.5 pb-1.5 text-xs/5 text-gray-400 dark:text-white/50">src/input.css</div>
+                                                <div class="*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:overflow-auto *:rounded-lg *:bg-white/10! *:p-5 dark:*:bg-white/5! **:[.line]:isolate **:[.line]:not-last:min-h-[1lh] *:inset-ring *:inset-ring-white/10 dark:*:inset-ring-white/5">
+                                                    <pre class="shiki tailwindcss-theme" style="background-color:transparent;color:var(--color-slate-50)" tabindex="0"><code><div class="line"><span style="color:var(--color-slate-300)">@import</span><span style="color:var(--color-sky-300)"> "tailwindcss"</span><span style="color:var(--color-slate-300)">;</span></div></code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="grid size-7 grid-cols-1 grid-rows-1 place-content-center border-1 border-gray-700/50 font-mono text-[10px]/7 font-medium text-gray-950 dark:border-white/50 dark:text-white">
+                                            <div class="col-start-1 row-start-1 grid place-content-center">
+                                                <div class="h-7 w-5 bg-white dark:bg-gray-950"></div>
+                                            </div>
+                                            <div class="col-start-1 row-start-1 grid place-content-center tracking-widest">03</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-5 xl:col-span-2">
+                                        <h4 class="mb-2 text-sm leading-6 font-semibold text-slate-900 dark:text-slate-200">Start the Tailwind CLI build process</h4>
+                                        <div class="prose">
+                                            <p>Run the CLI tool to scan your source files for classes and build your CSS.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-full mt-6 mb-16 sm:ml-13 xl:col-span-3 xl:m-0 xl:ml-0">
+                                        <div class="rounded-xl bg-gray-950 in-data-stack:mt-0 in-data-stack:rounded-none in-[figure]:-mx-1 in-[figure]:-mb-1 in-data-stack:[:first-child>&amp;]:rounded-t-xl in-data-stack:[:first-child>&amp;]:*:rounded-t-xl in-data-stack:[:last-child>&amp;]:rounded-b-xl in-data-stack:[:last-child>&amp;]:*:rounded-b-xl">
+                                            <div class="rounded-xl p-1 text-sm scheme-dark in-data-stack:rounded-none dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10 in-data-stack:dark:inset-ring-0">
+                                                <div class="px-3 pt-0.5 pb-1.5 text-xs/5 text-gray-400 dark:text-white/50">Terminal</div>
+                                                <div class="*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:overflow-auto *:rounded-lg *:bg-white/10! *:p-5 dark:*:bg-white/5! **:[.line]:isolate **:[.line]:not-last:min-h-[1lh] *:inset-ring *:inset-ring-white/10 dark:*:inset-ring-white/5">
+                                                    <pre class="shiki tailwindcss-theme" style="background-color:transparent;color:var(--color-slate-50)" tabindex="0"><code><div class="line"><span style="color:var(--color-pink-400)">npx</span><span style="color:var(--color-sky-300)"> @tailwindcss/cli</span><span style="color:var(--color-amber-200)"> -i</span><span style="color:var(--color-sky-300)"> ./src/input.css</span><span style="color:var(--color-amber-200)"> -o</span><span style="color:var(--color-sky-300)"> ./src/output.css</span><span style="color:var(--color-amber-200)"> --watch</span></div></code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="grid size-7 grid-cols-1 grid-rows-1 place-content-center border-1 border-gray-700/50 font-mono text-[10px]/7 font-medium text-gray-950 dark:border-white/50 dark:text-white">
+                                            <div class="col-start-1 row-start-1 grid place-content-center">
+                                                <div class="h-7 w-5 bg-white dark:bg-gray-950"></div>
+                                            </div>
+                                            <div class="col-start-1 row-start-1 grid place-content-center tracking-widest">04</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-5 xl:col-span-2">
+                                        <h4 class="mb-2 text-sm leading-6 font-semibold text-slate-900 dark:text-slate-200">Start using Tailwind in your HTML</h4>
+                                        <div class="prose">
+                                            <p>Add your compiled CSS file to the <code>&lt;head&gt;</code> and start using Tailwind’s utility classes to style your content.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-full mt-6 mb-16 sm:ml-13 xl:col-span-3 xl:m-0 xl:ml-0">
+                                        <div class="rounded-xl bg-gray-950 in-data-stack:mt-0 in-data-stack:rounded-none in-[figure]:-mx-1 in-[figure]:-mb-1 in-data-stack:[:first-child>&amp;]:rounded-t-xl in-data-stack:[:first-child>&amp;]:*:rounded-t-xl in-data-stack:[:last-child>&amp;]:rounded-b-xl in-data-stack:[:last-child>&amp;]:*:rounded-b-xl">
+                                            <div class="rounded-xl p-1 text-sm scheme-dark in-data-stack:rounded-none dark:bg-white/5 dark:inset-ring dark:inset-ring-white/10 in-data-stack:dark:inset-ring-0">
+                                                <div class="px-3 pt-0.5 pb-1.5 text-xs/5 text-gray-400 dark:text-white/50">src/index.html</div>
+                                                <div class="*:flex *:*:max-w-none *:*:shrink-0 *:*:grow *:overflow-auto *:rounded-lg *:bg-white/10! *:p-5 dark:*:bg-white/5! **:[.line]:isolate **:[.line]:not-last:min-h-[1lh] *:inset-ring *:inset-ring-white/10 dark:*:inset-ring-white/5">
+                                                    <pre class="shiki tailwindcss-theme has-highlighted" style="background-color:transparent;color:var(--color-slate-50)" tabindex="0"><code><div class="line"><span style="color:var(--color-slate-400)">&lt;!</span><span style="color:var(--color-pink-400)">doctype</span><span style="color:var(--color-slate-300)"> html</span><span style="color:var(--color-slate-400)">&gt;</span></div><div class="line"><span style="color:var(--color-slate-400)">&lt;</span><span style="color:var(--color-pink-400)">html</span><span style="color:var(--color-slate-400)">&gt;</span></div><div class="line"><span style="color:var(--color-slate-400)">&lt;</span><span style="color:var(--color-pink-400)">head</span><span style="color:var(--color-slate-400)">&gt;</span></div><div class="line"><span style="color:var(--color-slate-400)">  &lt;</span><span style="color:var(--color-pink-400)">meta</span><span style="color:var(--color-slate-300)"> charset</span><span style="color:var(--color-slate-400)">=</span><span style="color:var(--color-sky-300)">"UTF-8"</span><span style="color:var(--color-slate-400)">&gt;</span></div><div class="line"><span style="color:var(--color-slate-400)">  &lt;</span><span style="color:var(--color-pink-400)">meta</span><span style="color:var(--color-slate-300)"> name</span><span style="color:var(--color-slate-400)">=</span><span style="color:var(--color-sky-300)">"viewport"</span><span style="color:var(--color-slate-300)"> content</span><span style="color:var(--color-slate-400)">=</span><span style="color:var(--color-sky-300)">"width=device-width, initial-scale=1.0"</span><span style="color:var(--color-slate-400)">&gt;</span></div><div class="line -mx-5 pl-[calc(var(--spacing)*5-2px)] border-l-2 pr-5 border-sky-400 bg-sky-300/15"><span style="color:var(--color-slate-400)">  &lt;</span><span style="color:var(--color-pink-400)">link</span><span style="color:var(--color-slate-300)"> href</span><span style="color:var(--color-slate-400)">=</span><span style="color:var(--color-sky-300)">"./output.css"</span><span style="color:var(--color-slate-300)"> rel</span><span style="color:var(--color-slate-400)">=</span><span style="color:var(--color-sky-300)">"stylesheet"</span><span style="color:var(--color-slate-400)">&gt;</span></div><div class="line"><span style="color:var(--color-slate-400)">&lt;/</span><span style="color:var(--color-pink-400)">head</span><span style="color:var(--color-slate-400)">&gt;</span></div><div class="line"><span style="color:var(--color-slate-400)">&lt;</span><span style="color:var(--color-pink-400)">body</span><span style="color:var(--color-slate-400)">&gt;</span></div><div class="line -mx-5 pl-[calc(var(--spacing)*5-2px)] border-l-2 pr-5 border-sky-400 bg-sky-300/15"><span style="color:var(--color-slate-400)">  &lt;</span><span style="color:var(--color-pink-400)">h1</span><span style="color:var(--color-slate-300)"> class</span><span style="color:var(--color-slate-400)">=</span><span style="color:var(--color-sky-300)">"text-3xl font-bold underline"</span><span style="color:var(--color-slate-400)">&gt;</span></div><div class="line -mx-5 pl-[calc(var(--spacing)*5-2px)] border-l-2 pr-5 border-sky-400 bg-sky-300/15"><span style="color:var(--color-slate-50)">    Hello world!</span></div><div class="line -mx-5 pl-[calc(var(--spacing)*5-2px)] border-l-2 pr-5 border-sky-400 bg-sky-300/15"><span style="color:var(--color-slate-400)">  &lt;/</span><span style="color:var(--color-pink-400)">h1</span><span style="color:var(--color-slate-400)">&gt;</span></div><div class="line"><span style="color:var(--color-slate-400)">&lt;/</span><span style="color:var(--color-pink-400)">body</span><span style="color:var(--color-slate-400)">&gt;</span></div><div class="line"><span style="color:var(--color-slate-400)">&lt;/</span><span style="color:var(--color-pink-400)">html</span><span style="color:var(--color-slate-400)">&gt;</span></div></code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-start-4 row-span-5 row-start-1 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed [--pattern-fg:var(--color-gray-950)]/5 max-lg:hidden dark:[--pattern-fg:var(--color-white)]/10"></div>
+            <div class="col-span-full col-start-2 row-start-4 h-px bg-gray-950/5 dark:bg-white/10"></div>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <header>
         <h1 class="title" data-attr="Je suis un data attribut de title">Welcome to EQUERY</h1>
     </header>
     <main>
-        <p>This is a Template test for JQuery in TS</p>
-
+        <p>TS QUERY</p>
+        
         <p class="text-red">This text should become red, underlined and bold</p>
         <p id="removeClass" class="bold">This text should not be bold</p>
         <p class="change-html">This text should change</p>
-
+        
         <p class="change-onclick">I CAN CHANGE ON CLICK</p>
-
-
+        
+        
         <form action="#">
             <input type="text" id="inputField" placeholder="Type something..." value="Hello World!" data-attr="Je suis un data attribut d'inputField">	
             <input type="password" id="inputPassword" placeholder="*****" value="password" data-attr="Je suis un data attribut d'inputPassword">
@@ -32,18 +277,18 @@
             <p>yolo</p>
         </form>
         <div id="result"></div>
-
+        
         <div class="card">
             <button>
                 Clicker
             </button>
         </div>
-
+        
         <div class="checkbox">Toggle me</div>
         <div class="text-element">
             <strong>Hello</strong> world!
         </div>
-
+        
     </main>
     <footer>
     </footer>

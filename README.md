@@ -39,6 +39,7 @@ npx tsc --watch
 .eq()
 .each()
 .on()
+.animate()
 ```
 
 

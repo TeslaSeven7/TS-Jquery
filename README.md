@@ -8,7 +8,7 @@ A Lightweight Typescript Jquery alternative
 
 ```bash
 npm install
-npx tsc --watch
+npx run build
 ```
 
 ## Curent functions

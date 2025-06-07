@@ -357,15 +357,25 @@ function $(selector) {
                 if (!(queueKey in el))
                     el[queueKey] = [];
                 const queue = el[queueKey];
+                console.log('el', el, 'queue', queue, 'properties', properties, 'duration', duration, 'easing', easing, 'callback', callback);
                 queue.push(() => {
                     var _a;
                     const startTime = performance.now();
                     const startStyles = {};
                     const endStyles = {};
                     const units = {};
+                    // Parse transform separately
+                    let startTransform = [1, 1, 0, 0, 0]; // [scaleX, scaleY, rotate, translateX, translateY]
+                    let endTransform = [1, 1, 0, 0, 0];
                     for (const prop in properties) {
-                        const computed = getComputedStyle(el)[prop];
                         const targetVal = (properties[prop] || '').toString().trim();
+                        if (prop === 'transform') {
+                            const computed = getComputedStyle(el).transform;
+                            startTransform = parseTransform(computed);
+                            endTransform = parseTransform(targetVal);
+                            continue;
+                        }
+                        const computed = getComputedStyle(el)[prop];
                         const isNumeric = /^-?\d+(\.\d+)?([a-z%]*)?$/.test(targetVal);
                         const targetColor = parseColor(targetVal);
                         const computedColor = parseColor(computed);
@@ -389,6 +399,17 @@ function $(selector) {
                     const step = (now) => {
                         const t = Math.min(1, (now - startTime) / duration);
                         const eased = easing(t);
+                        // Animate transform
+                        const [s1, s2, r, tx, ty] = [0, 1, 2, 3, 4];
+                        const currentTransform = [
+                            startTransform[s1] + (endTransform[s1] - startTransform[s1]) * eased,
+                            startTransform[s2] + (endTransform[s2] - startTransform[s2]) * eased,
+                            startTransform[r] + (endTransform[r] - startTransform[r]) * eased,
+                            startTransform[tx] + (endTransform[tx] - startTransform[tx]) * eased,
+                            startTransform[ty] + (endTransform[ty] - startTransform[ty]) * eased,
+                        ];
+                        el.style.transform = `scale(${currentTransform[s1]}, ${currentTransform[s2]}) rotate(${currentTransform[r]}deg) translate(${currentTransform[tx]}px, ${currentTransform[ty]}px)`;
+                        // Animate other props
                         for (const prop in endStyles) {
                             const start = startStyles[prop];
                             const end = endStyles[prop];
@@ -435,7 +456,6 @@ function $(selector) {
         // Setting fillStyle to the given color
         ctx.fillStyle = color;
         const computed = ctx.fillStyle;
-        console.log('computed', computed); // For debugging
         // Handle RGB format
         const rgbMatch = computed.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
         if (rgbMatch) {
@@ -535,5 +555,16 @@ function $(selector) {
         // Step 4: Convert Linear RGB to Standard RGB (gamma corrected)
         return srgbLinear2rgb(rgbLinear);
     };
+    function parseTransform(transform) {
+        const scaleMatch = transform.match(/scale\(([^,]+),\s*([^)]+)\)/);
+        const rotateMatch = transform.match(/rotate\(([^)]+)deg\)/);
+        const translateMatch = transform.match(/translate\(([^,]+)px,\s*([^)]+)px\)/);
+        const scaleX = scaleMatch ? parseFloat(scaleMatch[1]) : 1;
+        const scaleY = scaleMatch ? parseFloat(scaleMatch[2]) : 1;
+        const rotate = rotateMatch ? parseFloat(rotateMatch[1]) : 0;
+        const translateX = translateMatch ? parseFloat(translateMatch[1]) : 0;
+        const translateY = translateMatch ? parseFloat(translateMatch[2]) : 0;
+        return [scaleX, scaleY, rotate, translateX, translateY];
+    }
     return instance;
 }

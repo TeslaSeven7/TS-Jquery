@@ -3,6 +3,7 @@
 // const title = $('.title');
 // console.log('Simple selector : ', title);
 
+
 // //Selecting more complex types of elements
 // const input = $('input:not([type="text"])');
 // console.log('Selector type Input : ', input);
@@ -94,38 +95,12 @@
 // console.log(textElement.text(''));
 
 $body = $('body');
+$div = $('div');
 $html = $('html');
 $body.on('click','.yolo', function (e) {
     e.preventDefault();
     console.log('Body clicked !');
 });
-// $html.animate(
-//     {
-//         backgroundColor: 'red',
-//     },
-//     1000,
-//     (t) => t * t, // Easing function: quadratic ease
-//     () => {
-//         console.log('Animation complete!');
-//     }
-// );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//$()
+$body.animate({
+    transform: 'scale(2)'
+}, 1000);

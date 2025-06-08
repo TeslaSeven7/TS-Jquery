@@ -1,9 +1,15 @@
 {
   "name": "my-ts-package",
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "description": "Lightweight modular jQuery-like library",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "type": "module",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "webpack"
   },
@@ -12,7 +18,24 @@
       "import": "./dist/index.js",
       "require": "./dist/index.js",
       "types": "./dist/index.d.ts"
+    },
+    "./$": {
+      "import": "./dist/core/$.js",
+      "types": "./dist/core/$.d.ts"
+    },
+    "./each": {
+      "import": "./dist/methods/each.js",
+      "types": "./dist/methods/each.d.ts"
+    },
+    "./on": {
+      "import": "./dist/methods/on.js",
+      "types": "./dist/methods/on.d.ts"
     }
   },
-  "files": ["dist"]
+  "devDependencies": {
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
+  }
 }
